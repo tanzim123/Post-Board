@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% block content %}
+{% load staticfiles %}
+
+<head>
+</head>
+<body>
+  <h1>{% block title %} Log-in {% endblock %}</h1>
+    <div class="login_form">
+            <form action="login" method="post">
+
+                <p1> Username </p1>
+                {{ form.username }}
+
+                </br>
+
+                <p2> Password </p2>
+                {{ form.password }}
+
+                </br>
+
+                {% csrf_token %}
+
+
+        <input type="submit" value="Log-in">
+            </form>
+  </body>
+</html>
+
+{% endblock %}

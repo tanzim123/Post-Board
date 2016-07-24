@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
+
+
+    <h1> Log-in form </h1>
+    <p>Login Please</p>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Log-in"></p>
+
+    </form>
+
+{% endblock %}
+
+

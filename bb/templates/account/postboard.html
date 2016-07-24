@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+{% extends "base.html" %}
+
+{% block title %} Post Board {% endblock %}
+{% block content %}
+<meta charset="UTF-8">
+<title>Post Bulletin Board</title>
+<div class="Posts">
+	<h1> Post Board </h1>
+	<p> Welcome {{ user }} , To create a new sticky, simply click on the sticky button</p>
+	<h2> Newest Posts </h2>
+	<p1> {{ name }} </p1>
+	{% for obj in object_list %}
+	{{ obj.user }}
+	</br>
+	{{ obj.title }}
+	</br>
+	{{ obj.slug }}
+	</br>
+	{{ obj.body }}
+	</br>
+	{{ obj.created }}
+	</br>
+	{% endfor %}
+
+</div>
+
+</br>
+
+<div id="post_button"> <a href="/bb/create/post">
+	<button>Create a Post</button>
+	</a>
+	</div>
+
+
+
+{% endblock %}
+<head>
+</head>
+<body>
+</body>
+</html>

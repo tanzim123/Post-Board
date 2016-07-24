@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Create Post
+{% endblock %}
+
+{% block content %}
+
+	<h1> Type in what you would like answered </h1>
+
+		<p> Use the following form to create a post: </p>
+
+			<form action="." method="POST">
+
+				{{ post.as_p }}
+
+				{% csrf_token%}
+
+				<p><input type ="submit" value="Submit Post"></p>
+
+			</form>
+
+{% endblock %}
