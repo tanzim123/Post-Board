@@ -18,13 +18,11 @@ def register(request):
     user_form = RegisterForm()
     return render(request, 'register/register_final.html', {'user_form': user_form})
 
-
 def see_all_posts(request):
     allposts = Post.objects.all()
     context = {"object_list": allposts}
     template_name = 'account/postboard.html'
     return render(request, template_name, context)
-
 
 def user_login(request):
     if request.method == 'POST':
@@ -65,7 +63,7 @@ def post(request):
         form = createpost(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            return HttpResponseRedirect(see_all_posts)
+            return see_all_posts(request)
         else:
             print(form.errors)
     else:
