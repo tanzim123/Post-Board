@@ -9,13 +9,11 @@ def register(request):
     if request.method == 'POST':
         user_form = RegisterForm(request.POST)
         if user_form.is_valid():
-            new_user = user_form.save(commit=False)
+            new_user = user_form.save(commit=True)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
             return render(request, 'register/register_done.html', {new_user: new_user})
-
         else:
-
             user_form = RegisterForm()
     user_form = RegisterForm()
     return render(request, 'register/register_final.html', {'user_form': user_form})
@@ -46,11 +44,8 @@ def user_login(request):
                 return render(request, 'account/login_failed.html')
         else:
             form = LoginForm()
-
     form = LoginForm()
-
     return render(request, 'login/login_final.html', {'form': form})
-
 
 '''def post(request):
 
@@ -64,7 +59,6 @@ def user_login(request):
         deprecated function needed to be resorted
 
         '''
-
 def post(request):
     context = RequestContext(request)
     if request.method == 'POST':

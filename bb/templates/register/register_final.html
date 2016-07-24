@@ -7,23 +7,16 @@
 <style>
 </style>
 </head>
-
 <body>
-
-
-    {% block content %} 
-
+    {% block content %}
 <div class="create_account_title"> 
-<h1> Create an Account </h1>
+    <h1> Create an Account </h1>
 </div>
-    <form class="register-block">
-        <form action="." method="post">
+    <form action="." method="POST">
             {{ user_form.as_p }} 
             {% csrf_token %} 
-            <p><input type ="submit" value="Create my account"></p>
-        </form>
-
-</div>
+            <input type ="submit" value="Create my account">
+    </form>
 <div class="extras">
         <p2> Or, if you already have an account please log in here. <a href="{% url "login" %}">log in</a>.</p2>
 </div>
