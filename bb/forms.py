@@ -3,9 +3,6 @@ from django.contrib.auth.models import User
 from django.forms import ModelForm
 from .models import Post
 
-
-
-
 class RegisterForm(forms.ModelForm):
 
 	password = forms.CharField(label='Password',
@@ -37,6 +34,6 @@ class createpost(ModelForm):
 
 	class Meta:
 		model = Post
-		fields = ['title', 'slug','body']
+		fields = ['title','slug','body']
 
 

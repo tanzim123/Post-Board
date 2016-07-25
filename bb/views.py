@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, RegisterForm, createpost
 from .models import Post
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 def register(request):
@@ -56,7 +58,11 @@ def user_login(request):
 
         deprecated function needed to be resorted
 
-        '''
+
+
+       '''
+
+@login_required()
 def post(request):
     context = RequestContext(request)
     if request.method == 'POST':

@@ -5,20 +5,14 @@
 {% block title %} Create Account
 {% endblock %}
 
-	{% block content %} 
-
+	{% block content %}
 	<h1> Create an Account </h1>
 		<p> Please sign up, using the following form: </p>
-
 			<form action="." method="post">
-
 				{{ user_form.as_p }} 
-				{% csrf_token %} 
-
+				{% csrf_token %}
 				<p><input type ="submit" value="Create my account"></p>
-
 			</form>
-
 		<p2> Or, if you already have an account please log in here. <a href="{% url "login" %}">log in</a>.</p2>
 	
 	{% endblock %}

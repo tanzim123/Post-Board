@@ -1,17 +1,15 @@
-
-
-
-
-{% extends "base.html" %}
-
-{% block title %} Welcome
-{% endblock %}
-
-	{% block content %} 
-
-	<h1> Welcome {{ new_user.first_name }}! </h1>
-
-	<p>Your Account has been set up successfully, now you can <a href="{% url "login" %}">log in</a>.</p>
-
-			
+<!DOCTYPE html>
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type = "text/css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <body>
+<title>Welcome</title>
+<div class="special_message">
+    <h1> Welcome {{ new_user.first_name }}! </h1>
+        <p class="message">Your Account has been set up, now you can <a href="{% url "login" %}">Sign In</a></p>
+</div>
+</body>
+</head>
 {% endblock %}

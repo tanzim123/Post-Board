@@ -1,43 +1,41 @@
-<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-
 {% extends "base.html" %}
-
 {% block title %} Post Board {% endblock %}
+{% load staticfiles %}
 {% block content %}
 <meta charset="UTF-8">
 <title>Post Bulletin Board</title>
-<div class="Posts">
-	<h1> Post Board </h1>
-	<p> Welcome {{ user }} , To create a new sticky, simply click on the sticky button</p>
-	<h2> Newest Posts </h2>
-	<p1> {{ name }} </p1>
-	{% for obj in object_list %}
-	{{ obj.user }}
-	</br>
-	{{ obj.title }}
-	</br>
-	{{ obj.slug }}
-	</br>
-	{{ obj.body }}
-	</br>
-	{{ obj.created }}
-	</br>
-	{% endfor %}
-
-</div>
-
-</br>
-
-<div id="post_button"> <a href="/bb/create/post">
-	<button>Create a Post</button>
-	</a>
-	</div>
-
-
-
-{% endblock %}
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
 </head>
 <body>
+<div class="wow bounceInUp">
+    <p> Hello </p>
+</div>
+	<div class="Posts">
+		<h1> Post Board </h1>
+			<p> Welcome {{ user }} , To create a new sticky, simply click on the sticky button</p>
+				<div id="create"> <a href="/bb/create/post">
+					<button>Create a Post</button>
+				</a>
+				</div>
+			{% for obj in object_list %}
+			<div class="quote-container">
+			  <i class="pin"></i>
+				<blockquote class="note yellow">
+					<h1>{{ obj.title }}</h1>
+					<p1>{{ obj.body }}</p1>
+					<p2>{{ obj.date }}</p2>
+				</blockquote>
+				<cite class="author">{{ obj.user }}</cite>
+			</div>
+		<p1> {{ name }} </p1>
+		{% endfor %}
 </body>
+{% endblock %}
 </html>

@@ -1,27 +1,31 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<meta charset="UTF-8">
-<title>Register</title>
-<style>
-</style>
-</head>
-<body>
-    {% block content %}
-<div class="create_account_title"> 
-    <h1> Create an Account </h1>
-</div>
-    <form action="." method="POST">
-            {{ user_form.as_p }} 
-            {% csrf_token %} 
-            <input type ="submit" value="Create my account">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type = "text/css"/>
+    <title>Register</title>
+    <body>
+        {% block content %}
+
+        <div class="form">
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+
+
     </form>
-<div class="extras">
-        <p2> Or, if you already have an account please log in here. <a href="{% url "login" %}">log in</a>.</p2>
-</div>
-
-{% endblock %}
-
+            <div class="register_form">
+                <form action="." method="POST">
+                    {{ user_form.as_p }}
+                    {% csrf_token %}
+                    <br>
+                    <input type ="submit" value="Create my account">
+                    <p class="message">Already registered? <a href="{% url "login" %}">Sign In</a></p>
+            </form>
+            </div>
+        {% endblock %}
 </body>
 </html>

@@ -3,19 +3,22 @@
 {% endblock %}
 
 {% block content %}
+{% load staticfiles %}
 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type = "text/css"/>
+	<body>
 	<h1> Type in what you would like answered </h1>
-
 		<p> Use the following form to create a post: </p>
-
 			<form action="." method="POST">
-
 				{{ post.as_p }}
-
 				{% csrf_token%}
-
 				<p><input type ="submit" value="Submit Post"></p>
-
 			</form>
-
 {% endblock %}
+</body>
+</head>
+
+
+
